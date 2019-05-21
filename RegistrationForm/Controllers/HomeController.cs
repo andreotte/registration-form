@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RegistrationForm.Models;
+using System.Text.RegularExpressions;
 
 namespace RegistrationForm.Controllers
 {
@@ -13,17 +15,17 @@ namespace RegistrationForm.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
+        public ActionResult Register()
+        {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Result(Person inputPerson)
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.UserName = inputPerson.UserName;
+            ViewBag.Email = inputPerson.Email;
+            ViewBag.Password = inputPerson.Password;
             return View();
         }
     }
