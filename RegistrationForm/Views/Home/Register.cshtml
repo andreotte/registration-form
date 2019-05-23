@@ -1,9 +1,46 @@
 ﻿
 <br />
-<form action="Result" method="post">
+<!--Change action to "PersonView to duisplay all the registration information on the page.-->
+<form action="Result" method="get">
     <br />
-    User Name: <input type="text" name="UserName" required /> <br /><br />
-    Email: <input type="email" pattern="^([\w\.\-]+)\@('@')([\w\-]{2,}?)((\.(\w){2,3})+)$" name="Email" required /><p style="color:red">@Session["Error"]</p><br /><br />
-    Password: <input type="password" minlength="8" required name="Password" /><br /><br />
-    <input type="submit" />
+    <div>
+        <fieldset>
+            <legend>The Standard Stuff:</legend>
+            User Name: <input type="text" name="UserName" required/> <br /><br />
+            Email: <input type="text" name="Email" pattern="^^([\w\.\-]+)@('@')([\w\-]+)((\.(\w){2,3})+)$" required/> <br /><br />
+            Password: <input type="password" minlength="8" name="Password" required/><br /><br />                       
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>The "Are You Smart Enough Stuff"</legend>
+            <p><strong>Select the mammals:</strong></p>
+            <input type="checkbox" name="Human" value="human" />Human<br />
+            <input type="checkbox" name="Wolf" value="wolf" />Wolf<br />
+            <input type="checkbox" name="Snake" value="snake" />Snake<br />
+            <input type="checkbox" name="Squach" value="squach" />Squach<br /><br />
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>The Personality Test Stuff</legend>
+            <input type="radio" name="Personality" value="badass" />   Whatever you do, don't select.<br />
+            
+        </fieldset>
+    </div>
+    <fieldset><legend></legend>
+        <input type="submit" />
+    </fieldset>
+</form>
+
+<form action="Result" id="right-allign">
+    <input type="submit" name="ButtonClick" value="PUSH" /> Whatever you do, click the button.<br /><br />
+    <style>
+        #right-allign{
+            text-align: right;
+            vertical-align:top;
+        }
+    </style>
 </form>

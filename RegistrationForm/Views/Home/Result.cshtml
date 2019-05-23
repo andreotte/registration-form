@@ -1,3 +1,67 @@
-﻿<br />
-<h2>Welcome @ViewBag.UserName!</h2>
+﻿
+<br />
+@if (ViewBag.ButtonClick == "PUSH" && (ViewBag.Human != "human" ||
+                                       ViewBag.Wolf != "wolf" ||
+                                       ViewBag.Squach != "squach" ||
+                                       ViewBag.Snake == "snake"))
+{
+    <h1 class="dumby">Yikes. You are a rule follow and are not welcome at the conference.</h1>
+}
+else if (ViewBag.Human != "human" ||
+         ViewBag.Wolf != "wolf" ||
+         ViewBag.Squach != "squach" ||
+         ViewBag.Snake == "snake")
+{
+    <h1 class="dumby">Yikes. Go watch Planet Earth! You are not welcome at the conferece.</h1>
+}
+else if (ViewBag.Personality != "badass")
+{
+    <h1 class="dumby">Yikes. You should've checked the button. We don't like the goody-two-shoes type. You are not welcome at the conference.</h1>
+
+}
+
+else
+{
+    <br />
+    <h2>Welcome @ViewBag.UserName!</h2>
+    <p>username: @ViewBag.UserName</p>
+    <p>email: @ViewBag.Email</p><br /><br />
+
+    int passwordScore = 0;
+
+
+    if (ViewBag.Password.Length > 10)
+    {
+        passwordScore += 1;
+        <p>Your password is pretty long. Nice!</p>
+    }
+    else if (ViewBag.Password.Length < 10)
+    {
+        <p>Your password is kinda short, but it'll do...</p>
+    }
+
+    for (int i = 0; i < ViewBag.Password.Length; i++)
+    {
+        if (char.IsSymbol(ViewBag.Password[i]) || char.IsPunctuation(ViewBag.Password[i]))
+        {
+            passwordScore += 1;
+            <p>Your password has a special character. Nice!</p>
+            break;
+        }
+    }
+    <p>Password Score: @passwordScore</p>
+}
+
+<style>
+    .dumby 
+    {
+        color: red;
+    }
+</style>
+
+
+
+
+
+
 
